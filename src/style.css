@@ -36,14 +36,13 @@ h1 {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .item {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: blue;
 }
 
 .img{
