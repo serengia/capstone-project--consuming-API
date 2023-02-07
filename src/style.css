@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-weight: 500;
+}
+
+header,
+footer {
+  height: 6rem;
+  background-color: #111;
+}
+
+h1 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+}
+
+.row {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: orangered;
+}

@@ -69,10 +69,16 @@ To build a webpack bundle file,run
 npm run build
 ```
 
-If you want to build and run the local server, run
+To start the project, run
 
 ```js
 npm start
+```
+
+You might also want to the local server automatically restarted for you any time you change any file in src folder. To activate that, open another terminal beside the the one running **npm start** and run the following command. Ensure to keep the terminal running:
+
+```js
+npm run watch
 ```
 
 ## Authors <a name="author"></a>
