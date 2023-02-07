@@ -11,7 +11,6 @@ const getData = async () => {
 const displayInHtml = async () => {
   const meals = await getData();
   meals.forEach((meal) => {
-    console.log(meal.strMealThumb)
     const div = document.createElement("div");
     div.classList.add("item");
     div.innerHTML = `
