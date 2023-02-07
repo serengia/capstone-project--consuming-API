@@ -31,5 +31,24 @@ h1 {
 .row {
   max-width: 80%;
   margin: 0 auto;
-  background-color: orangered;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.item {
+  background-color: blue;
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+
+  .row {
+    max-width: 90%;
+  }
 }
