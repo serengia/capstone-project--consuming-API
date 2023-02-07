@@ -40,9 +40,31 @@ h1 {
 }
 
 .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: blue;
 }
 
+.img{
+  width:fit-content;
+  height: 3rem;
+}
+.name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fa-heart{
+  font-size: 3rem;
+}
+.likes{
+  align-self: flex-end;
+}
+.comment{
+  font-size: 2rem;
+  padding: 0.5rem 1.5rem;
+}
 @media (max-width: 500px) {
   .cards {
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
