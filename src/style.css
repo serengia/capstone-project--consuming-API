@@ -21,11 +21,37 @@ header,
 footer {
   height: 6rem;
   background-color: #111;
+  color: aliceblue;
 }
 
 h1 {
   font-size: 3.6rem;
   margin-bottom: 2rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 2px solid wheat;
+  padding: 1.5rem;
+  width: max-content;
+}
+
+.header-container > ul {
+  display: flex;
+  list-style: none;
+  gap: 1.6rem;
+}
+
+.header-container a {
+  text-decoration: none;
+  color: aliceblue;
 }
 
 .row {
