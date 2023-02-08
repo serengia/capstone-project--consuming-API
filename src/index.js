@@ -2,13 +2,15 @@ import "./style.css";
 import displayInHtml, { getData, getSingeMeal } from "./modules/GetMeal.js";
 import generatePopupMarkup from "./modules/generatePopupMarkup.js";
 import { getComments, postComment } from "./modules/commentsHandler.js";
+import { getLikes, postLike } from "./modules/likesHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
 
 (async () => {
   const meals = await getData();
-  displayInHtml(meals);
+  const likes = await getLikes();
+  displayInHtml({ meals, likes });
 })();
 
 // Displaying popup
@@ -60,4 +62,14 @@ popupHook.addEventListener("click", (e) => {
   const closeBtn = e.target.closest(".form-close-popup-btn");
   if (!closeBtn) return;
   popupHook.innerHTML = "";
+});
+
+// Likes
+itemContainer.addEventListener("click", (e) => {
+  const likeIcon = e.target.closest(".item-icon");
+  if (!likeIcon) return;
+
+  const { id } = likeIcon.dataset;
+
+  postLike({ item_id: id });
 });

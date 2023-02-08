@@ -21,8 +21,15 @@ export const getSingeMeal = async (id) => {
   }
 };
 
-const displayInHtml = async (meals) => {
+const displayInHtml = async (data) => {
+  const { meals, likes } = data;
+
   meals.forEach((meal) => {
+    let numLikes = 0;
+    const result = likes.find((like) => like.item_id === meal.idMeal);
+
+    if (result) numLikes = result.likes;
+
     const div = document.createElement("div");
     div.classList.add("item");
     div.innerHTML = `
@@ -30,8 +37,8 @@ const displayInHtml = async (meals) => {
       <div class="item-meta-data">
           <h2 class="name">${meal.strMeal}</h2>                     
         <span class="item-icon-container">
-          <i class="item-icon fa-regular fa-heart"></i>
-          <span class="likes">7 Likes</span>
+          <i data-id="${meal.idMeal}" data-my-name="James Serengia" class="item-icon fa-regular fa-heart"></i>
+          <span class="likes">${numLikes} Likes</span>
           </span>
       </div>
         
