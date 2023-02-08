@@ -1,23 +1,42 @@
+import MEALS_API_URL from "../globals.js";
+
 const cardContainer = document.querySelector(".cards");
 
-const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken";
+const url = `${MEALS_API_URL}/filter.php?c=Chicken`;
 
-const getData = async () => {
+export const getData = async () => {
   const response = await fetch(url);
   const data = await response.json();
+  console.log("MEALS BRO=>", data);
   return data.meals;
 };
 
-const displayInHtml = async () => {
-  const meals = await getData();
+export const getSingeMeal = async (id) => {
+  try {
+    const res = await fetch(`${MEALS_API_URL}/lookup.php?i=${id}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const displayInHtml = async (meals) => {
   meals.forEach((meal) => {
     const div = document.createElement("div");
     div.classList.add("item");
     div.innerHTML = `
-    <img src="${meal.strMealThumb}" alt="Meal-picture">
-                        <div class="name"><p>${meal.strMeal}</p><i class="fa-regular fa-heart"></i></div>
-                        <p class="likes">7 Likes</p>
-                        <button class="comment">Comments</button>
+    <img src="${meal.strMealThumb}" alt="Meal-picture"/>
+      <div class="item-meta-data">
+          <h2 class="name">${meal.strMeal}</h2>                     
+        <span class="item-icon-container">
+          <i class="item-icon fa-regular fa-heart"></i>
+          <span class="likes">7 Likes</span>
+          </span>
+      </div>
+        
+      <button data-id-meal='${meal.idMeal}' class="card-btn">Comments</button>
+                    
     `;
     cardContainer.appendChild(div);
   });
