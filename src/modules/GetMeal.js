@@ -31,7 +31,7 @@ const displayInHtml = async (meals) => {
           <h2 class="name">${meal.strMeal}</h2>                     
         <span class="item-icon-container">
           <i class="item-icon fa-regular fa-heart"></i>
-          <span class="likes">7 Likes</span>
+          <span data-id="${meal.idMeal}" class="likes">7 Likes</span>
           </span>
       </div>
         

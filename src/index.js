@@ -2,6 +2,11 @@ import "./style.css";
 import displayInHtml, { getData, getSingeMeal } from "./modules/GetMeal.js";
 import generatePopupMarkup from "./modules/generatePopupMarkup.js";
 import { getComments, postComment } from "./modules/commentsHandler.js";
+import postLikes from "./modules/likesHandler";
+
+  postLikes({item_id: 53050});
+
+
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
