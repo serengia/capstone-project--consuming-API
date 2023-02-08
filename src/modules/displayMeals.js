@@ -1,30 +1,8 @@
-import MEALS_API_URL from "../globals.js";
-
 export const cardContainer = document.querySelector(".cards");
 
-const url = `${MEALS_API_URL}/filter.php?c=Chicken`;
-
-export const getData = async () => {
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log("MEALS BRO=>", data);
-  return data.meals;
-};
-
-export const getSingeMeal = async (id) => {
-  try {
-    const res = await fetch(`${MEALS_API_URL}/lookup.php?i=${id}`);
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const displayInHtml = async (data) => {
-  const {meals,likes} = data;
+export const displayInHtml = async (data) => {
+  const { meals, likes } = data;
   meals.forEach((meal) => {
-    
     let numberOfLikes = 0;
     const result = likes.find((like) => like.item_id === meal.idMeal);
     if (result) numberOfLikes = result.likes;
@@ -47,5 +25,3 @@ const displayInHtml = async (data) => {
     cardContainer.appendChild(div);
   });
 };
-
-export default displayInHtml;
