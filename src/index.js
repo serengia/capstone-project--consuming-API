@@ -1,10 +1,9 @@
 import "./style.css";
-import displayInHtml, { getData, getSingeMeal } from "./modules/GetMeal.js";
+import displayInHtml, { getData, getSingeMeal,cardContainer } from "./modules/GetMeal.js";
 import generatePopupMarkup from "./modules/generatePopupMarkup.js";
 import { getComments, postComment } from "./modules/commentsHandler.js";
 import { postLikes,getLikes } from "./modules/likesHandler";
 
-  getLikes();
 
 
 
@@ -66,3 +65,11 @@ popupHook.addEventListener("click", (e) => {
   if (!closeBtn) return;
   popupHook.innerHTML = "";
 });
+
+cardContainer.addEventListener('click',(e)=>{
+  const closeLikeIcon = e.target.closest('.item-icon');
+  if(!closeLikeIcon) return;
+  closeLikeIcon.style.color = 'red';
+  const {id} = closeLikeIcon.dataset;
+  postLikes({item_id:id});
+})

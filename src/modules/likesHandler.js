@@ -15,10 +15,7 @@ export const postLikes = async (data)=>{
 export const getLikes = async ()=>{
     const response = await fetch(`${INVOLVEMENT_API_URL}/likes`);
     const data = await response.json();
-    console.log(data);
     return data;
-
-
 }
 
 
