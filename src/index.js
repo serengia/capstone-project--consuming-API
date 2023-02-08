@@ -12,7 +12,8 @@ const itemContainer = document.querySelector(".cards");
 
 (async () => {
   const meals = await getData();
-  displayInHtml(meals);
+  const likes = await getLikes();
+  displayInHtml({meals,likes});
 })();
 
 // Displaying popup
