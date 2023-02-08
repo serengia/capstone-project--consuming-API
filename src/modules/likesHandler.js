@@ -1,6 +1,6 @@
 import { INVOLVEMENT_API_URL } from "../globals";
 
-const postLikes = async (data)=>{
+export const postLikes = async (data)=>{
     await fetch(`${INVOLVEMENT_API_URL}/likes`,{
         method: "POST",
         body: JSON.stringify(data),
@@ -8,10 +8,19 @@ const postLikes = async (data)=>{
             'Content-type': 'application/json; charset=UTF-8',
           },
     });
-    console.log('Added successfully');
+    
 
 }
 
-export default postLikes;
+export const getLikes = async ()=>{
+    const response = await fetch(`${INVOLVEMENT_API_URL}/likes`);
+    const data = await response.json();
+    console.log(data);
+    return data;
+
+
+}
+
+
 
 
