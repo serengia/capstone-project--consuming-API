@@ -1,14 +1,17 @@
 import "./style.css";
-import displayInHtml, { getData, getSingeMeal } from "./modules/GetMeal.js";
+import { getSingeMeal, getAllMeal } from "./modules/getMeals.js";
+import { displayInHtml, cardContainer } from "./modules/displayMeals.js";
 import generatePopupMarkup from "./modules/generatePopupMarkup.js";
 import { getComments, postComment } from "./modules/commentsHandler.js";
+import { postLikes, getLikes } from "./modules/likesHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
 
 (async () => {
-  const meals = await getData();
-  displayInHtml(meals);
+  const meals = await getAllMeal();
+  const likes = await getLikes();
+  displayInHtml({ meals, likes });
 })();
 
 // Displaying popup
@@ -60,4 +63,13 @@ popupHook.addEventListener("click", (e) => {
   const closeBtn = e.target.closest(".form-close-popup-btn");
   if (!closeBtn) return;
   popupHook.innerHTML = "";
+});
+
+// handle likes
+cardContainer.addEventListener('click', (e) => {
+  const closeLikeIcon = e.target.closest('.item-icon');
+  if (!closeLikeIcon) return;
+  closeLikeIcon.style.color = 'red';
+  const { id } = closeLikeIcon.dataset;
+  postLikes({ item_id: id });
 });
