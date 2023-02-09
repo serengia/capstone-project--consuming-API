@@ -73,3 +73,10 @@ cardContainer.addEventListener('click', (e) => {
   const { id } = closeLikeIcon.dataset;
   postLikes({ item_id: id });
 });
+
+cardContainer.addEventListener('click', (e) => {
+  const likeNumber = e.target.closest('.item-icon-container').querySelector('.likes-count');
+  if (!likeNumber) return;
+  const currentCount = +likeNumber.textContent;
+  likeNumber.textContent = currentCount +1
+});
