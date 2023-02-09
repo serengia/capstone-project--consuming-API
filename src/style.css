@@ -19,13 +19,9 @@ body {
   position: relative;
 }
 
-header,
-footer {
+header {
   background-color: #111;
   color: aliceblue;
-}
-
-header {
   position: sticky;
   top: 0;
   left: 0;
@@ -52,12 +48,21 @@ h1 {
 .header-container > ul {
   display: flex;
   list-style: none;
-  gap: 1.6rem;
+  gap: 3rem;
 }
 
 .header-container a {
   text-decoration: none;
   color: aliceblue;
+}
+
+.navigation-btn {
+  color: aliceblue;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .row {
@@ -67,6 +72,7 @@ h1 {
 
 .section-main {
   padding: 3rem 0;
+  min-height: 60vh;
 }
 
 .cards {
@@ -104,7 +110,7 @@ h1 {
 }
 
 .item-icon {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .likes {
@@ -147,8 +153,10 @@ h1 {
 
 .popup-image-container {
   height: 20rem;
-  background-color: darkgray;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .popup-image {
@@ -196,6 +204,16 @@ h1 {
   margin-bottom: 0.5rem;
   border: 1px solid #9d9d9d;
   border-radius: 0.4rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+}
+
+.comments-form textarea::placeholder {
+  padding: 0.6rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  border: 1px solid #9d9d9d;
+  border-radius: 0.4rem;
 }
 
 .close-popup-btn {
@@ -228,6 +246,60 @@ h1 {
 .form-close-popup-btn {
   color: #000;
   background-color: #9d9d9d;
+}
+
+.footer {
+  height: 8rem;
+  border-top: 1px solid #bababa;
+}
+
+.footer-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Contact page */
+.section-contact {
+  margin: 4rem 0;
+  display: none;
+}
+
+.contact-page {
+  min-height: 30rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  padding: 4rem;
+}
+
+.contact-page .description {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.developers-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.developer {
+  flex: 1;
+}
+
+.developer ul {
+  list-style: none;
+}
+
+.developer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.developer li {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 @media (max-width: 500px) {
