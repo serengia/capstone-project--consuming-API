@@ -2,8 +2,13 @@ import "./style.css";
 import { getSingeMeal, getAllMeal } from "./modules/getMeals.js";
 import { displayInHtml, cardContainer } from "./modules/displayMeals.js";
 import generatePopupMarkup from "./modules/generatePopupMarkup.js";
-import { getComments, postComment } from "./modules/commentsHandler.js";
+import {
+  getComments,
+  insertCommentMarkup,
+  postComment,
+} from "./modules/commentsHandler.js";
 import { postLikes, getLikes } from "./modules/likesHandler.js";
+import navigationHandler from "./modules/navigationHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
@@ -23,7 +28,6 @@ itemContainer.addEventListener("click", async (e) => {
 
   // Fetching comments
   const commentsData = await getComments(idMeal);
-  console.log("COMMENTSSSS...", commentsData);
 
   const { meals } = await getSingeMeal(idMeal);
 
@@ -49,6 +53,17 @@ itemContainer.addEventListener("click", async (e) => {
     if (!username || !comment) return;
 
     postComment({ item_id, username, comment });
+
+    // Insert comments to the ui
+    const commentsContainer = e.target
+      .closest(".popup")
+      .querySelector(".comments");
+
+    insertCommentMarkup(commentsContainer, { username, comment });
+
+    // Clear inputs
+    e.target.name.value = "";
+    e.target.comment.value = "";
   });
 });
 
@@ -66,10 +81,13 @@ popupHook.addEventListener("click", (e) => {
 });
 
 // handle likes
-cardContainer.addEventListener('click', (e) => {
-  const closeLikeIcon = e.target.closest('.item-icon');
+cardContainer.addEventListener("click", (e) => {
+  const closeLikeIcon = e.target.closest(".item-icon");
   if (!closeLikeIcon) return;
-  closeLikeIcon.style.color = 'red';
+  closeLikeIcon.style.color = "red";
   const { id } = closeLikeIcon.dataset;
   postLikes({ item_id: id });
 });
+
+// Handle page navigations
+navigationHandler();
