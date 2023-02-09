@@ -7,10 +7,12 @@ import { postLikes, getLikes } from "./modules/likesHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
+const itemCount = document.querySelector('.item-count');
 
 (async () => {
   const meals = await getAllMeal();
   const likes = await getLikes();
+  itemCount.textContent = meals.length;
   displayInHtml({ meals, likes });
 })();
 
