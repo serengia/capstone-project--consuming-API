@@ -12,10 +12,12 @@ import navigationHandler from "./modules/navigationHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
+const itemCount = document.querySelector('.item-count');
 
 (async () => {
   const meals = await getAllMeal();
   const likes = await getLikes();
+  itemCount.textContent = meals.length;
   displayInHtml({ meals, likes });
 })();
 
@@ -87,6 +89,14 @@ cardContainer.addEventListener("click", (e) => {
   closeLikeIcon.style.color = "red";
   const { id } = closeLikeIcon.dataset;
   postLikes({ item_id: id });
+});
+
+// Update number of likes
+cardContainer.addEventListener("click", (e) => {
+  const closeLikes = e.target.closest(".item-icon-container").querySelector('.likes-count');
+  if (!closeLikes) return;
+  const currentLikes = +closeLikes.textContent + 1;
+  closeLikes.textContent = currentLikes;
 });
 
 // Handle page navigations

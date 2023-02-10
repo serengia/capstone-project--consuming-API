@@ -15,7 +15,7 @@ export const displayInHtml = async (data) => {
           <h2 class="name">${meal.strMeal}</h2>                     
         <span class="item-icon-container">
           <i data-id='${meal.idMeal}' class="item-icon fa-solid fa-heart"></i>
-          <span  class="likes">${numberOfLikes} Likes</span>
+          <span  class="likes"><span class="likes-count">${numberOfLikes}</span> Likes</span>
           </span>
       </div>
         
