@@ -94,14 +94,6 @@ npm run watch
 - Twitter: [@twitterhandle](https://twitter.com/JamesSerengia)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/james-serengia)
 
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **Reordering a selected item (as drag-and-drop)**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!

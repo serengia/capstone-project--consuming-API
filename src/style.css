@@ -29,12 +29,13 @@ header {
 
 h1 {
   font-size: 3.6rem;
-  margin-bottom: 2rem;
 }
 
 .menu-heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .header-container {
@@ -48,6 +49,7 @@ h1 {
   border-radius: 50%;
   border: 2px solid wheat;
   padding: 1.5rem;
+  width: max-content;
 }
 
 .header-container > ul {
@@ -68,6 +70,11 @@ h1 {
   font-size: 1.6rem;
   font-family: inherit;
   cursor: pointer;
+}
+
+.item-count-wrapper {
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .row {
@@ -305,6 +312,24 @@ h1 {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .developers-container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  .menu-heading {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .item-count-wrapper {
+    margin-bottom: 2rem;
+    align-self: flex-start;
+  }
 }
 
 @media (max-width: 500px) {
