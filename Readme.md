@@ -52,6 +52,10 @@
 
 <!-- GETTING STARTED -->
 
+## Live video presentation
+
+Watch live [Video presentation here](https://drive.google.com/file/d/1cknhCwPeTdamI1G-bnP_pKvjvWX9ffJ9/view?usp=sharing)
+
 ## Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running follow these simple example steps.
