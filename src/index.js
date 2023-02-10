@@ -12,7 +12,7 @@ import navigationHandler from "./modules/navigationHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
-const itemCount = document.querySelector('.item-count');
+const itemCount = document.querySelector(".item-count");
 
 (async () => {
   const meals = await getAllMeal();
@@ -93,11 +93,13 @@ cardContainer.addEventListener("click", (e) => {
 
 // Update number of likes
 cardContainer.addEventListener("click", (e) => {
-  const closeLikes = e.target.closest(".item-icon-container").querySelector('.likes-count');
+  const closeLikes = e.target
+    .closest(".item-icon-container")
+    .querySelector(".likes-count");
   if (!closeLikes) return;
   const currentLikes = +closeLikes.textContent + 1;
-  closeLikes.textContent = currentLikes;
+  closeLikes.textContent = currentLikes.toString();
 });
 
-// Handle page navigations
+// Handle page navigation
 navigationHandler();
