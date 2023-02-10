@@ -314,21 +314,36 @@ h1 {
   font-weight: 500;
 }
 
+@media (max-width: 1000px) {
+  .popup {
+    width: 60%;
+  }
+}
+
 @media (max-width: 800px) {
   .developers-container {
     flex-direction: column;
     gap: 4rem;
   }
+
   h1 {
     font-size: 2.4rem;
   }
+
   .menu-heading {
     flex-direction: column;
     gap: 1.6rem;
   }
+
   .item-count-wrapper {
     margin-bottom: 2rem;
     align-self: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .popup {
+    width: 70%;
   }
 }
 
@@ -339,5 +354,9 @@ h1 {
 
   .row {
     max-width: 90%;
+  }
+
+  .popup {
+    width: 80%;
   }
 }
