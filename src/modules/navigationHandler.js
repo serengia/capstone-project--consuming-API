@@ -22,4 +22,4 @@ const navigationHandler = () => {
   });
 };
 
-export default navigationHandler();
+export default navigationHandler;

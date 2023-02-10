@@ -12,7 +12,6 @@
   - [Getting Started ](#getting-started)
     - [Install ](#install)
   - [Author ](#author)
-  - [🔭 Future Features ](#future-features)
   - [🤝 Contributing ](#contributing)
   - [Show your support ](#show-your-support)
   - [Acknowledgments ](#acknowledgments)
@@ -88,7 +87,8 @@ npm run watch
 - GitHub: [@githubhandle](https://github.com/henry-dura)
 - Twitter: [@twitterhandle](https://twitter.com/henryikemefuna)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/henry-ikemefuna-ugwu-3a2613100/)
-- 👤 **James Serengia**
+
+👤 **James Serengia**
 
 - GitHub: [@githubhandle](https://github.com/serengia)
 - Twitter: [@twitterhandle](https://twitter.com/JamesSerengia)

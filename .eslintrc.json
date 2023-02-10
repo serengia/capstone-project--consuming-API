@@ -25,9 +25,9 @@
       }
     ],
     "arrow-body-style": "off",
-    "quotes": "off",
     "consistent-return": "off",
     "linebreak-style": "off",
+    "quotes": "off",
     "class-methods-use-this": "off",
     "indent": "off"
   },

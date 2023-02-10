@@ -10,12 +10,9 @@ export const postComment = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const data = await res.json();
-    console.log("SUCCESSFULLY POSTED A COMMENTS");
-    console.log("WHAT WE GET>>>", data);
+    await res.json();
   } catch (err) {
-    console.log("ERROR IN POSTING A COMMENTS");
-    console.log(err);
+    return err;
   }
 };
 
@@ -25,11 +22,10 @@ export const getComments = async (itemId) => {
       `${INVOLVEMENT_API_URL}/comments?item_id=${itemId}`
     );
     const data = await res.json();
-    console.log("SUCCESSFULLY FETCHED COMMENTS");
+
     return data;
   } catch (err) {
-    console.log("ERROR FETCHING COMMENTS");
-    console.log(err);
+    return err;
   }
 };
 

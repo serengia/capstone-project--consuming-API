@@ -1,6 +1,6 @@
 const { expect, describe } = require("@jest/globals");
 const getComments = require("./__mocks__/getComments.js");
-const getMeals = require('./__mocks__/getMeals.js');
+const getMeals = require("./__mocks__/getMeals.js");
 
 const testArr = [{}, {}, {}, {}];
 
@@ -19,27 +19,25 @@ describe("Testing comments count", () => {
 });
 
 const testMeals = [
-{
-  strMeal: "Ayam Percik",
-  strMealThumb: "https://www.themealdb.com/images/media/meals/020z181619788503.jpg",
-  idMeal: 53050
+  {
+    strMeal: "Ayam Percik",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/020z181619788503.jpg",
+    idMeal: 53050,
   },
   {
-  strMeal: "Brown Stew Chicken",
-  strMealThumb: "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
-  idMeal: 52940
+    strMeal: "Brown Stew Chicken",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+    idMeal: 52940,
   },
-  ];
+];
 
 describe("Testing Items count", () => {
   test("should return first value of testMeals", async () => {
     const result = await getMeals(testMeals);
 
-    expect(result[0]).toEqual({
-      strMeal: "Ayam Percik",
-      strMealThumb: "https://www.themealdb.com/images/media/meals/020z181619788503.jpg",
-      idMeal: 53050
-      });
+    expect(result[0]).toEqual(testMeals[0]);
   });
 
   test("should return testMeals length", async () => {
