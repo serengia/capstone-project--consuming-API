@@ -91,5 +91,13 @@ cardContainer.addEventListener("click", (e) => {
   postLikes({ item_id: id });
 });
 
+// Update number of likes
+cardContainer.addEventListener("click", (e) => {
+  const closeLikes = e.target.closest(".item-icon-container").querySelector('.likes-count');
+  if (!closeLikes) return;
+  const currentLikes = +closeLikes.textContent + 1;
+  closeLikes.textContent = currentLikes;
+});
+
 // Handle page navigations
 navigationHandler();
