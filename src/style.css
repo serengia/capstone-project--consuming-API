@@ -31,7 +31,8 @@ h1 {
   font-size: 3.6rem;
   margin-bottom: 2rem;
 }
-.menu-heading{
+
+.menu-heading {
   display: flex;
   justify-content: space-between;
 }
