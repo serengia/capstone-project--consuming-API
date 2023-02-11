@@ -1,6 +1,7 @@
 const { expect, describe } = require("@jest/globals");
 const getComments = require("./__mocks__/getComments.js");
 const getCommentsNode = require("./__mocks__/getCommentsNodes.js");
+const itemCounter = require("./__mocks__/getItemsContainerNodes.js");
 const getMeals = require("./__mocks__/getMeals.js");
 
 const testArr = [{}, {}, {}, {}];
@@ -28,6 +29,33 @@ describe("Check nodeList length", () => {
   test("should return zero if no comment was found", () => {
     document.body.innerHTML = getCommentsNode(testCommentNodes2);
     const result = document.querySelectorAll(".comment");
+    expect(result.length).toBe(0);
+  });
+});
+
+const testItemNodes1 = `
+<div class="cards">
+  <p class="itemm">item 1</p>
+  <p class="itemm">item 2</p>
+  <p class="itemm">item 3</p>
+</div>
+`;
+const testItemNodes2 = `
+<div class="cards">
+  
+</div>
+`;
+
+describe("Check items nodeList length", () => {
+  test("Should return the item count", () => {
+    document.body.innerHTML = itemCounter(testItemNodes1);
+    const result = document.querySelectorAll(".itemm");
+    expect(result.length).toBe(3);
+  });
+
+  test("should return zero if no items found", () => {
+    document.body.innerHTML = getCommentsNode(testItemNodes2);
+    const result = document.querySelectorAll(".itemm");
     expect(result.length).toBe(0);
   });
 });
