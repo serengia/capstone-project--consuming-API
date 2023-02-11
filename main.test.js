@@ -6,7 +6,7 @@ const getMeals = require("./__mocks__/getMeals.js");
 
 const testArr = [{}, {}, {}, {}];
 
-const testNode = `
+const testCommentNodes1 = `
 <div class="comments">
   <p class="comment">Comment 1</p>
   <p class="comment">Comment 2</p>
@@ -14,25 +14,31 @@ const testNode = `
 </div>
 `;
 
+const testCommentNodes2 = `
+<div class="comments">
+
+</div>
+`;
+
 describe("Check nodeList length", () => {
   test("Should return the comments count", () => {
-    document.body.innerHTML = getCommentsNode(testNode);
+    document.body.innerHTML = getCommentsNode(testCommentNodes1);
     const result = document.querySelectorAll(".comment");
     expect(result.length).toBe(3);
   });
 
   test("should return zero if no count was found", () => {
-    document.body.innerHTML = getCommentsNode(testNode);
-    const result = document.querySelectorAll(".no-comment-paragraph-found");
+    document.body.innerHTML = getCommentsNode(testCommentNodes2);
+    const result = document.querySelectorAll(".comment");
     expect(result.length).toBe(0);
   });
 });
 
 const testItemNodes1 = `
 <div class="cards">
-  <p class="itemm">item 1</p>
-  <p class="itemm">item 2</p>
-  <p class="itemm">item 3</p>
+  <p class="item">item 1</p>
+  <p class="item">item 2</p>
+  <p class="item">item 3</p>
 </div>
 `;
 const testItemNodes2 = `
@@ -44,13 +50,13 @@ const testItemNodes2 = `
 describe("Check items nodeList length", () => {
   test("Should return the item count", () => {
     document.body.innerHTML = itemCounter(testItemNodes1);
-    const result = document.querySelectorAll(".itemm");
+    const result = document.querySelectorAll(".item");
     expect(result.length).toBe(3);
   });
 
   test("should return zero if no items found", () => {
     document.body.innerHTML = getCommentsNode(testItemNodes2);
-    const result = document.querySelectorAll(".itemm");
+    const result = document.querySelectorAll(".item");
     expect(result.length).toBe(0);
   });
 });
