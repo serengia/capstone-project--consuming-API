@@ -12,7 +12,6 @@
   - [Getting Started ](#getting-started)
     - [Install ](#install)
   - [Author ](#author)
-  - [🔭 Future Features ](#future-features)
   - [🤝 Contributing ](#contributing)
   - [Show your support ](#show-your-support)
   - [Acknowledgments ](#acknowledgments)
@@ -53,6 +52,10 @@
 
 <!-- GETTING STARTED -->
 
+## Live video presentation
+
+Watch live [Video presentation here](https://drive.google.com/file/d/1cknhCwPeTdamI1G-bnP_pKvjvWX9ffJ9/view?usp=sharing)
+
 ## Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running follow these simple example steps.
@@ -69,10 +72,16 @@ To build a webpack bundle file,run
 npm run build
 ```
 
-If you want to build and run the local server, run
+To start the project, run
 
 ```js
 npm start
+```
+
+You might also want to the local server automatically restarted for you any time you change any file in src folder. To activate that, open another terminal beside the the one running **npm start** and run the following command. Ensure to keep the terminal running:
+
+```js
+npm run watch
 ```
 
 ## Authors <a name="author"></a>
@@ -82,19 +91,12 @@ npm start
 - GitHub: [@githubhandle](https://github.com/henry-dura)
 - Twitter: [@twitterhandle](https://twitter.com/henryikemefuna)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/henry-ikemefuna-ugwu-3a2613100/)
-- 👤 **James Serengia**
+
+👤 **James Serengia**
 
 - GitHub: [@githubhandle](https://github.com/serengia)
 - Twitter: [@twitterhandle](https://twitter.com/JamesSerengia)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/james-serengia)
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **Reordering a selected item (as drag-and-drop)**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>
 
