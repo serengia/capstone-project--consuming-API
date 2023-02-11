@@ -16,6 +16,7 @@ const testCommentNodes1 = `
 
 const testCommentNodes2 = `
 <div class="comments">
+
 </div>
 `;
 
@@ -26,7 +27,7 @@ describe("Check nodeList length", () => {
     expect(result.length).toBe(3);
   });
 
-  test("should return zero if no comment was found", () => {
+  test("should return zero if no count was found", () => {
     document.body.innerHTML = getCommentsNode(testCommentNodes2);
     const result = document.querySelectorAll(".comment");
     expect(result.length).toBe(0);
@@ -35,9 +36,9 @@ describe("Check nodeList length", () => {
 
 const testItemNodes1 = `
 <div class="cards">
-  <p class="itemm">item 1</p>
-  <p class="itemm">item 2</p>
-  <p class="itemm">item 3</p>
+  <p class="item">item 1</p>
+  <p class="item">item 2</p>
+  <p class="item">item 3</p>
 </div>
 `;
 const testItemNodes2 = `
@@ -49,13 +50,13 @@ const testItemNodes2 = `
 describe("Check items nodeList length", () => {
   test("Should return the item count", () => {
     document.body.innerHTML = itemCounter(testItemNodes1);
-    const result = document.querySelectorAll(".itemm");
+    const result = document.querySelectorAll(".item");
     expect(result.length).toBe(3);
   });
 
   test("should return zero if no items found", () => {
     document.body.innerHTML = getCommentsNode(testItemNodes2);
-    const result = document.querySelectorAll(".itemm");
+    const result = document.querySelectorAll(".item");
     expect(result.length).toBe(0);
   });
 });
