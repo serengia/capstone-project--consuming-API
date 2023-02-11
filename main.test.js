@@ -5,7 +5,7 @@ const getMeals = require("./__mocks__/getMeals.js");
 
 const testArr = [{}, {}, {}, {}];
 
-const testNode = `
+const testCommentNodes1 = `
 <div class="comments">
   <p class="comment">Comment 1</p>
   <p class="comment">Comment 2</p>
@@ -13,16 +13,21 @@ const testNode = `
 </div>
 `;
 
+const testCommentNodes2 = `
+<div class="comments">
+</div>
+`;
+
 describe("Check nodeList length", () => {
   test("Should return the comments count", () => {
-    document.body.innerHTML = getCommentsNode(testNode);
+    document.body.innerHTML = getCommentsNode(testCommentNodes1);
     const result = document.querySelectorAll(".comment");
     expect(result.length).toBe(3);
   });
 
-  test("should return zero if no count was found", () => {
-    document.body.innerHTML = getCommentsNode(testNode);
-    const result = document.querySelectorAll(".no-comment-paragraph-found");
+  test("should return zero if no comment was found", () => {
+    document.body.innerHTML = getCommentsNode(testCommentNodes2);
+    const result = document.querySelectorAll(".comment");
     expect(result.length).toBe(0);
   });
 });

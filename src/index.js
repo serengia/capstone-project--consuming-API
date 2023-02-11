@@ -9,7 +9,7 @@ import {
 } from "./modules/commentsHandler.js";
 import { postLikes, getLikes } from "./modules/likesHandler.js";
 import navigationHandler from "./modules/navigationHandler.js";
-import commentsCounter from "./modules/commentCounter.js";
+import commentsCounter from "./modules/commentsCounter.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
