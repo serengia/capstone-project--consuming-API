@@ -10,16 +10,17 @@ import {
 import { postLikes, getLikes } from "./modules/likesHandler.js";
 import navigationHandler from "./modules/navigationHandler.js";
 import commentsCounter from "./modules/commentCounter.js";
+import itemCounter from "./modules/itemCounter";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
-const itemCount = document.querySelector(".item-count");
+
 
 (async () => {
   const meals = await getAllMeal();
   const likes = await getLikes();
-  itemCount.textContent = meals.length;
-  displayInHtml({ meals, likes });
+  await displayInHtml({ meals, likes });
+  itemCounter();
 })();
 
 // Displaying popup
