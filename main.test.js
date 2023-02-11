@@ -1,8 +1,31 @@
 const { expect, describe } = require("@jest/globals");
 const getComments = require("./__mocks__/getComments.js");
+const getCommentsNode = require("./__mocks__/getCommentsNodes.js");
 const getMeals = require("./__mocks__/getMeals.js");
 
 const testArr = [{}, {}, {}, {}];
+
+const testNode = `
+<div class="comments">
+  <p class="comment">Comment 1</p>
+  <p class="comment">Comment 2</p>
+  <p class="comment">Comment 3</p>
+</div>
+`;
+
+describe("Check nodeList length", () => {
+  test("Should return the comments count", () => {
+    document.body.innerHTML = getCommentsNode(testNode);
+    const result = document.querySelectorAll(".comment");
+    expect(result.length).toBe(3);
+  });
+
+  test("should return zero if no count was found", () => {
+    document.body.innerHTML = getCommentsNode(testNode);
+    const result = document.querySelectorAll(".no-comment-paragraph-found");
+    expect(result.length).toBe(0);
+  });
+});
 
 describe("Testing comments count", () => {
   test("should return first value of arr", async () => {
