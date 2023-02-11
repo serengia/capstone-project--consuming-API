@@ -9,6 +9,7 @@ import {
 } from "./modules/commentsHandler.js";
 import { postLikes, getLikes } from "./modules/likesHandler.js";
 import navigationHandler from "./modules/navigationHandler.js";
+import commentsCounter from "./modules/commentCounter.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
@@ -37,6 +38,9 @@ itemContainer.addEventListener("click", async (e) => {
 
   const markup = generatePopupMarkup({ detailedCardData, commentsData });
   popupHook.innerHTML = markup;
+
+  // Calculate and insert comments count
+  commentsCounter();
 
   // Handle comment submit
   const form = document.querySelector(".comments-form");
@@ -95,10 +99,10 @@ cardContainer.addEventListener("click", (e) => {
 cardContainer.addEventListener("click", (e) => {
   const closeLikes = e.target
     .closest(".item-icon-container")
-    .querySelector(".likes-count");
+    ?.querySelector(".likes-count");
   if (!closeLikes) return;
-  const currentLikes = +closeLikes.textContent + 1;
-  closeLikes.textContent = currentLikes.toString();
+  const currentLikes = +closeLikes?.textContent + 1;
+  closeLikes.textContent = currentLikes?.toString();
 });
 
 // Handle page navigation
