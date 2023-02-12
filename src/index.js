@@ -11,6 +11,10 @@ import { postLikes, getLikes } from "./modules/likesHandler.js";
 import navigationHandler from "./modules/navigationHandler.js";
 import commentsCounter from "./modules/commentsCounter.js";
 import itemCounter from "./modules/itemCounter.js";
+import updateLikeLocalHandler, {
+  isAlreadyLiked,
+  likeStatusAlreadyStored,
+} from "./modules/updateLikeLocalHandler.js";
 
 const popupHook = document.querySelector(".popup-hook");
 const itemContainer = document.querySelector(".cards");
@@ -87,22 +91,37 @@ popupHook.addEventListener("click", (e) => {
 });
 
 // handle likes
-cardContainer.addEventListener("click", (e) => {
-  const closeLikeIcon = e.target.closest(".item-icon");
-  if (!closeLikeIcon) return;
-  closeLikeIcon.style.color = "red";
-  const { id } = closeLikeIcon.dataset;
-  postLikes({ item_id: id });
-});
+cardContainer.addEventListener("click", async (e) => {
+  const likeIcon = e.target.closest(".item-icon");
+  if (!likeIcon) return;
 
-// Update number of likes
-cardContainer.addEventListener("click", (e) => {
-  const closeLikes = e.target
-    .closest(".item-icon-container")
+  const itemId = likeIcon.dataset.id;
+
+  const likesCountWrapper = likeIcon
+    ?.closest(".item-icon-container")
     ?.querySelector(".likes-count");
-  if (!closeLikes) return;
-  const currentLikes = +closeLikes?.textContent + 1;
-  closeLikes.textContent = currentLikes?.toString();
+
+  let currentLikes = +likesCountWrapper?.textContent;
+
+  if (likeStatusAlreadyStored(itemId)) {
+    if (isAlreadyLiked(itemId)) {
+      currentLikes -= 1;
+      likeIcon.style.color = "";
+    }
+    if (!isAlreadyLiked(itemId)) {
+      currentLikes += 1;
+      likeIcon.style.color = "red";
+    }
+  } else {
+    currentLikes += 1;
+    likeIcon.style.color = "red";
+  }
+  likesCountWrapper.textContent = currentLikes;
+
+  if (!likeStatusAlreadyStored(itemId)) {
+    await postLikes({ item_id: itemId });
+  }
+  updateLikeLocalHandler(itemId);
 });
 
 // Handle page navigation

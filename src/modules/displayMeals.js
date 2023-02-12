@@ -1,3 +1,5 @@
+import { isAlreadyLiked } from "./updateLikeLocalHandler.js";
+
 export const cardContainer = document.querySelector(".cards");
 
 export const displayInHtml = async (data) => {
@@ -14,7 +16,9 @@ export const displayInHtml = async (data) => {
       <div class="item-meta-data">
           <h2 class="name">${meal.strMeal}</h2>                     
         <span class="item-icon-container">
-          <i data-id='${meal.idMeal}' class="item-icon fa-solid fa-heart"></i>
+          <i data-id='${meal.idMeal}' class="item-icon fa-solid fa-heart" ${
+      isAlreadyLiked(meal.idMeal) ? 'style = "color:red;"' : null
+    } ></i>
           <span  class="likes"><span class="likes-count">${numberOfLikes}</span> Likes</span>
           </span>
       </div>
