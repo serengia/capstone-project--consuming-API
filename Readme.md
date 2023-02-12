@@ -23,6 +23,12 @@
 
 > We build this project using webpack and following industry standards Gitflow pattern. On this app, you can view meals, search a meal, leave a comment on a single meal, or even like.
 
+## Landing pahe
+![landing-page](https://user-images.githubusercontent.com/69452516/218312142-8fc6ca30-0032-4019-a87b-14231be94b75.png)
+
+## Card popup
+![pop-up](https://user-images.githubusercontent.com/69452516/218312157-b9e9e9c4-dda3-4678-8f15-f1c5a050a3ba.png)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 - Javascript
